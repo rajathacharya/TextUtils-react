@@ -38,6 +38,18 @@ export default function TextForm(props) {
        setText(word.join(""));
     }
 
+    // Copy
+    const handelCopy = () => {
+        let copytext = document.getElementById("myBox")
+        copytext.select();
+        navigator.clipboard.writeText(copytext.value)
+    }
+
+    //Remove extra spaces
+    const handelExtrapaces = () => {
+        let newtext = text.split(/[ ]+/)
+        setText(newtext.join(" "))
+    }
     
     const handleOnchange = (event) => {
         console.log("On Change");
@@ -57,6 +69,8 @@ export default function TextForm(props) {
             <button className="btn btn-secondary mx-3" onClick={handleLowClick} >Convert to Lowercase</button>
             <button className="btn btn-secondary m-2" onClick={handleDelClick} >Delete</button>
             <button className="btn btn-secondary m-2" onClick={backSpace} >BackSpace</button>
+            <button className="btn btn-secondary m-2" onClick={handelCopy} >Copy</button>
+            <button className="btn btn-secondary m-2" onClick={handelExtrapaces} >Remove extra Spaces</button>
         </div>
         <div className="container my-3">
             <h2>Your Text Contains</h2>

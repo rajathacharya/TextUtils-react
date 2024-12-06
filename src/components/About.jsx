@@ -66,7 +66,7 @@ export default function About() {
         </div>
     </div>
     </div>
-    <div className="container m-4 p-4">
+    <div className="container mx-3 p-4 ">
     <button className='btn btn-primary' onClick={DarkMode}>{text}</button>
     </div>
         </div>
