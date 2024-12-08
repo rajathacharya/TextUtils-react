@@ -6,9 +6,11 @@ export default function TextForm(props) {
     const handleUpClick = () => {
         let newtext  = text.toUpperCase();
         if(newtext === "") {
-            alert("Enter the text");
+            //alert("Enter the text");
+            props.setAlert("Enter the text", "warning");
         }else {
             setText(newtext);
+            props.setAlert("Converted to Upper Case", "success");
         }
     }
 
@@ -16,9 +18,11 @@ export default function TextForm(props) {
     const handleLowClick = () => {
         let newtext  = text.toLowerCase();
         if(newtext === "") {
-            alert("Enter the text");
+            //alert("Enter the text");
+            props.setAlert("Enter the text", "warning");
         }else {
             setText(newtext);
+            props.setAlert("Converted to Lower Case", "success");
         }
         
     }
@@ -27,6 +31,7 @@ export default function TextForm(props) {
     const handleDelClick = () => {
         let newtext  = "";
         setText(newtext);
+        props.setAlert("Deleted Sucessfully", "success");
     }
 
     // Backspace code
@@ -43,12 +48,14 @@ export default function TextForm(props) {
         let copytext = document.getElementById("myBox")
         copytext.select();
         navigator.clipboard.writeText(copytext.value)
+        props.setAlert("Copied to Clipboard", "success");
     }
 
     //Remove extra spaces
     const handelExtrapaces = () => {
         let newtext = text.split(/[ ]+/)
-        setText(newtext.join(" "))
+        setText(newtext.join(" "));
+        props.setAlert("Extra Spaces removed", "success");
     }
     
     const handleOnchange = (event) => {
